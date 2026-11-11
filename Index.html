@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Скидки</title>
+<style>
+body{font-family:sans-serif;max-width:400px;margin:20px auto;padding:0 16px;text-align:center}
+input{font-size:24px;width:100%;padding:12px;box-sizing:border-box}
+button{font-size:20px;margin:6px;padding:14px 20px;border:0;border-radius:12px;background:#4f46e5;color:#fff}
+#result{font-size:22px;margin-top:20px}
+</style>
+</head>
+<body>
+<h2>Калькулятор скидки</h2>
+<input id="sum" type="number" placeholder="Ваша сумма">
+<div>
+<button onclick="calc(5)">5%</button>
+<button onclick="calc(10)">10%</button>
+<button onclick="calc(15)">15%</button>
+<button onclick="calc(20)">20%</button>
+<button onclick="calc(30)">30%</button>
+<button onclick="calc(50)">50%</button>
+</div>
+<div id="result"></div>
+<script>
+function calc(p){
+  const s = parseFloat(document.getElementById('sum').value);
+  const r = document.getElementById('result');
+  if(!s){ r.textContent = 'Введите сумму'; return; }
+  const d = s * p / 100;
+  r.innerHTML = 'Скидка: ' + d.toFixed(2) + '<br>К оплате: ' + (s - d).toFixed(2);
+}
+</script>
+</body>
+</html>
